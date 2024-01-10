@@ -2,8 +2,6 @@
 
 Simple client to validate and push deployments to refter
 
-This project was generated with [cookiecutter](https://github.com/audreyr/cookiecutter) using [jacebrowning/template-python](https://github.com/jacebrowning/template-python).
-
 [![Unix Build Status](https://img.shields.io/github/actions/workflow/status/henriblancke/refter-cli/main.yml?branch=main&label=linux)](https://github.com/henriblancke/refter-cli/actions)
 [![Windows Build Status](https://img.shields.io/appveyor/ci/henriblancke/refter-cli.svg?label=windows)](https://ci.appveyor.com/project/henriblancke/refter-cli)
 [![Coverage Status](https://img.shields.io/codecov/c/gh/henriblancke/refter-cli)](https://codecov.io/gh/henriblancke/refter-cli)
@@ -16,28 +14,16 @@ This project was generated with [cookiecutter](https://github.com/audreyr/cookie
 
 ### Requirements
 
-* Python 3.11+
+* Python 3.10+
 
 ### Installation
 
 Install it directly into an activated virtual environment:
 
 ```text
-$ pip install Refter Client
-```
-
-or add it to your [Poetry](https://poetry.eustace.io/) project:
-
-```text
-$ poetry add Refter Client
+$ pip install refter-cli
 ```
 
 ## Usage
 
-After installation, the package can be imported:
-
-```text
-$ python
->>> import refter-cli
->>> refter-cli.__version__
-```
+Check out the [refter](https://refter.io/docs) documentation to learn more about how to use the `refter-cli` client.

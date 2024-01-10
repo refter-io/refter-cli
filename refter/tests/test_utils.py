@@ -5,8 +5,8 @@ from refter.utils.validation import (
     _find_model_for_schema_and_table,
     _find_nodes_with_references,
     _get_ref_schema_and_table,
-    _validate_references,
     _validate_column_references,
+    _validate_references,
 )
 
 

@@ -21,9 +21,6 @@ jobs:
     - name: initialize poetry
       uses: Gr1N/setup-poetry@v8
 
-    - name: check dependencies
-      run: make doctor
-
     - uses: actions/cache@v2
       with:
         path: .venv

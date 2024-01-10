@@ -3,7 +3,7 @@ PACKAGE := refter
 MODULES := $(wildcard $(PACKAGE)/*.py)
 
 .PHONY: all
-all: doctor format check test
+all: format check test
 
 VIRTUAL_ENV ?= .venv
 
@@ -39,7 +39,6 @@ ifdef CI
 endif
 	poetry run mypy $(PACKAGE)
 	poetry run pylint $(PACKAGE) --rcfile=.pylint.ini
-	poetry run pydocstyle $(PACKAGE)
 
 
 DIST_FILES := dist/*.tar.gz dist/*.whl

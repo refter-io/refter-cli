@@ -1,7 +1,7 @@
 import click
 
-from refter.utils.validation import validate as _validate
 from refter.utils.deploy import deploy as _deploy
+from refter.utils.validation import validate as _validate
 
 
 @click.group()

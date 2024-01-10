@@ -1,16 +1,11 @@
-import sys
 import json
-import requests
-
+import sys
 from typing import Optional
+
+import requests
 from rich.console import Console
-from refter.constants import (
-    API_HOST,
-    API_ENDPOINT,
-    CI,
-    CI_BRANCH,
-    CI_COMMIT,
-)
+
+from refter.constants import API_ENDPOINT, API_HOST, CI, CI_BRANCH, CI_COMMIT
 
 
 def upload_manifest(
@@ -32,6 +27,7 @@ def upload_manifest(
             json=data,
             headers=headers,
             params=params,
+            timeout=-60,
         )
 
         if response.status_code != 200:
