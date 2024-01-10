@@ -37,6 +37,7 @@ check: install format ## Run formaters, linters, and static analysis
 ifdef CI
 	git diff --exit-code
 endif
+	poetry run mypy --install-types --non-interactive $(PACKAGE)
 	poetry run mypy $(PACKAGE)
 	poetry run pylint $(PACKAGE) --rcfile=.pylint.ini
 
