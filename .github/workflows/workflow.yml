@@ -37,3 +37,6 @@ jobs:
 
     - name: publish to pypi
       run: make publish
+      env:
+        PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+        PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
