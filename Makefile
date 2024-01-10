@@ -55,4 +55,4 @@ $(DIST_FILES): $(MODULES) pyproject.toml
 .PHONY: publish
 publish: dist
 	git diff --name-only --exit-code
-	poetry publish --build -u $(PYPI_USERNAME) -p $(PYPI_PASSWORD)
+	poetry publish --build -u $(PYPI_USERNAME) -p $(PYPI_PASSWORD) -n
