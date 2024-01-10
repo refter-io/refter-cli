@@ -1,0 +1,102 @@
+[tool.poetry]
+
+name = "refter-cli"
+version = "0.1.0"
+description = "Simple client to validate and push deployments to refter"
+
+packages = [{ include = "refter" }]
+
+license = "MIT"
+authors = ["refter-cli <support@refter.io>"]
+
+readme = "README.md"
+homepage = "https://pypi.org/project/refter-cli"
+documentation = "https://refter.io/docs"
+repository = "https://github.com/refter-io/refter-cli"
+
+keywords = [
+]
+classifiers = [
+    # TODO: update this list to match your application: https://pypi.org/pypi?%3Aaction=list_classifiers
+    "Development Status :: 1 - Planning",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+]
+
+[tool.poetry.dependencies]
+
+python = "^3.10"
+
+click = "*"
+dbt-core = "^1.7.4"
+rich = "^13.7.0"
+requests = "^2.31.0"
+
+[tool.poetry.dev-dependencies]
+
+# Formatters
+black = "^22.1"
+tomli = "*" # missing 'black' dependency
+isort = "^5.10"
+
+# Linters
+mypy = "^1.0"
+pydocstyle = "^6.1"
+pylint = "~2.15"
+wrapt = "*" # missing 'pylint' dependency
+
+# Testing
+pytest = "^7.3"
+pytest-describe = "^2.0"
+pytest-expecter = "^3.0"
+pytest-random = "*"
+pytest-cov = "^4.1"
+freezegun = "*"
+
+# Reports
+coveragespace = "^6.0"
+
+[tool.poetry.scripts]
+
+refter = "refter.cli:cli"
+
+[tool.black]
+
+quiet = true
+
+[tool.isort]
+
+profile = "black"
+
+[tool.mypy]
+
+ignore_missing_imports = true
+no_implicit_optional = true
+check_untyped_defs = true
+
+cache_dir = ".cache/mypy/"
+
+[tool.pytest.ini_options]
+
+addopts = """
+--strict-markers
+
+-r sxX
+--show-capture=log
+
+--cov-report=html
+--cov-report=term-missing:skip-covered
+--no-cov-on-fail
+"""
+
+cache_dir = ".cache/pytest/"
+
+markers = []
+
+[build-system]
+
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
