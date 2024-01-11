@@ -11,7 +11,7 @@ authors = ["refter-cli <support@refter.io>"]
 
 readme = "README.md"
 homepage = "https://pypi.org/project/refter-cli"
-documentation = "https://refter.io/docs"
+documentation = "https://docs.refter.io"
 repository = "https://github.com/refter-io/refter-cli"
 
 keywords = [

@@ -18,4 +18,4 @@ $ pip install refter-cli
 
 ## Usage
 
-Check out the [refter](https://refter.io/docs) documentation to learn more about how to use the `refter-cli` client.
+Check out the [refter](https://docs.refter.io) documentation to learn more about how to use the `refter-cli` client.
