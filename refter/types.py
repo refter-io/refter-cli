@@ -12,15 +12,15 @@ class RelationType(str, Enum):
 
 
 class TableConfig(BaseModel):
-    disabled: Optional[bool]
-    deprecated: Optional[bool]
-    group: Optional[str]
-    owner: Optional[str]
+    disabled: Optional[bool] = False
+    deprecated: Optional[bool] = False
+    group: Optional[str] = None
+    owner: Optional[str] = None
 
 
 class ValidateError(BaseModel):
     field: str
-    column: Optional[str]
+    column: Optional[str] = None
     message: str
     type: str
 
@@ -32,5 +32,5 @@ class RelationConfig(BaseModel):
 
 
 class ColumnConfig(BaseModel):
-    disabled: Optional[bool]
-    relations: Optional[List[RelationConfig]]
+    disabled: Optional[bool] = False
+    relations: Optional[List[RelationConfig]] = None
