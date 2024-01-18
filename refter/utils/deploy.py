@@ -27,7 +27,7 @@ def upload_manifest(
             json=data,
             headers=headers,
             params=params,
-            timeout=-60,
+            timeout=180,
         )
 
         if response.status_code != 200:
