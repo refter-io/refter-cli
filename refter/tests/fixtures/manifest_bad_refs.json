@@ -459,7 +459,11 @@
         "docs": { "show": true, "node_color": null },
         "contract": { "enforced": false, "alias_types": true },
         "access": "protected",
-        "refter": { "group": "testdata", "deprecated": false, "owner": "data" }
+        "refter": {
+          "group": "testdata",
+          "deprecated": { "enabled": "false" },
+          "owner": "data"
+        }
       },
       "tags": [],
       "description": "",
@@ -499,7 +503,13 @@
           "constraints": [],
           "quote": null,
           "tags": [],
-          "refter": { "deprecated": true }
+          "refter": {
+            "deprecated": {
+              "enabled": "true",
+              "reason": "This column is deprecated.",
+              "date": "2021-01-01"
+            }
+          }
         },
         "owner": {
           "name": "owner",
@@ -576,7 +586,11 @@
         "pre-hook": [
           "CREATE OR REPLACE FUNCTION testdata.array_distinct(value ANY TYPE) AS ((SELECT ARRAY_AGG(a.b) FROM (SELECT DISTINCT * FROM UNNEST(value) b) a))"
         ],
-        "refter": { "group": "testdata", "deprecated": false, "owner": "data" }
+        "refter": {
+          "group": "testdata",
+          "deprecated": { "enabled": "false" },
+          "owner": "data"
+        }
       },
       "created_at": 1704417359.150738,
       "relation_name": "`testdata-73a1d`.`hb_testdata`.`user_events`",

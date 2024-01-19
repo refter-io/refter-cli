@@ -11,9 +11,15 @@ class RelationType(str, Enum):
     one_to_many = "one-to-many"
 
 
+class DeprecatedConfig(BaseModel):
+    enabled: Optional[bool] = False
+    reason: Optional[str] = None
+    date: Optional[str] = None
+
+
 class TableConfig(BaseModel):
     disabled: Optional[bool] = False
-    deprecated: Optional[bool] = False
+    deprecated: Optional[DeprecatedConfig] = None
     group: Optional[str] = None
     owner: Optional[str] = None
 
@@ -32,5 +38,5 @@ class RelationConfig(BaseModel):
 
 
 class ColumnConfig(BaseModel):
-    disabled: Optional[bool] = False
+    deprecated: Optional[DeprecatedConfig] = None
     relations: Optional[List[RelationConfig]] = None

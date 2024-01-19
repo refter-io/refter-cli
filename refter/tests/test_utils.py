@@ -70,12 +70,6 @@ def test_validate_references(good_manifest):
         "column": None,
         "type": "type_error.bool",
     }
-    assert errors[1].dict() == {
-        "field": "deprecated",
-        "message": "value could not be parsed to a boolean",
-        "column": None,
-        "type": "type_error.bool",
-    }
 
 
 def test_validate_column_references(good_manifest):
@@ -88,7 +82,37 @@ def test_validate_column_references_errors(bad_ref_manifest):
     assert len(errors.keys()) == 1
 
     errors = errors["hb_testdata.user_tasks"]
-    assert len(errors) == 3
+    assert len(errors) == 4
+
+    assert errors[0].dict() == {
+        "column": "owner",
+        "field": "relations.0.type",
+        "message": "value is not a valid enumeration member; "
+        + "permitted: 'one-to-one', "
+        "'many-to-many', 'many-to-one', 'one-to-many'",
+        "type": "type_error.enum",
+    }
+
+    assert errors[1].dict() == {
+        "column": "title",
+        "field": "deprecated",
+        "message": "value is not a valid dict",
+        "type": "type_error.dict",
+    }
+
+    assert errors[2].dict() == {
+        "column": "title",
+        "field": "relations.0.column",
+        "message": "field required",
+        "type": "value_error.missing",
+    }
+
+    assert errors[3].dict() == {
+        "column": "title",
+        "field": "relations.0.type",
+        "message": "field required",
+        "type": "value_error.missing",
+    }
 
 
 def test_validate_references_failure(bad_ref_manifest):
@@ -97,7 +121,7 @@ def test_validate_references_failure(bad_ref_manifest):
     assert len(errors) == 1
 
     table_errors = errors["hb_testdata.user_tasks"]
-    assert len(table_errors) == 3
+    assert len(table_errors) == 4
     assert table_errors[0].dict() == {
         "message": (
             "value is not a valid enumeration member; permitted:"
@@ -110,12 +134,19 @@ def test_validate_references_failure(bad_ref_manifest):
 
     assert table_errors[1].dict() == {
         "column": "title",
+        "field": "deprecated",
+        "message": "value is not a valid dict",
+        "type": "type_error.dict",
+    }
+
+    assert table_errors[2].dict() == {
+        "column": "title",
         "field": "relations.0.column",
         "message": "field required",
         "type": "value_error.missing",
     }
 
-    assert table_errors[2].dict() == {
+    assert table_errors[3].dict() == {
         "column": "title",
         "field": "relations.0.type",
         "message": "field required",
